@@ -18,6 +18,8 @@ import toast, { Toaster } from "react-hot-toast";
 import ScrollIntoView from "react-scroll-into-view";
 import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 type Input = string;
 
 const Portfolio: React.FC = () => {
@@ -58,6 +60,7 @@ const Portfolio: React.FC = () => {
       },
       (error) => {
         toast.error("Failed to send Message");
+        console.log("Failed to send Message", error);
       }
     );
   };
@@ -331,7 +334,9 @@ const Portfolio: React.FC = () => {
         type="submit"
         className="block border border-solid border-borderColor rounded mt-[20px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
       >
-        Special Skills
+        Special Skills{" "}
+        {!open && <ChevronRight size={30} className="inline float-end" />}
+        {open && <ChevronDown size={30} className="inline float-end" />}
       </button>
       <AnimatePresence>
         {open && (
@@ -372,7 +377,13 @@ const Portfolio: React.FC = () => {
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
       >
-        Programming Languages
+        Programming Languages{" "}
+        {!openProgrammingSkills && (
+          <ChevronRight size={30} className="inline float-end" />
+        )}
+        {openProgrammingSkills && (
+          <ChevronDown size={30} className="inline float-end" />
+        )}
       </button>
       <AnimatePresence>
         {openProgrammingSkills && (
@@ -382,7 +393,7 @@ const Portfolio: React.FC = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="border border-solid border-borderColor rounded  my-1 mx-auto max-w-[500px] w-[80%]  text-start bg-[#101012]"
+              className="border border-solid border-borderColor rounded  my-1 mx-auto max-w-[500px] w-[75%]  text-start bg-[#101012]"
             >
               <ul className="py-1 px-5 text-white">
                 <li className="py-1 border-b border-solid border-borderColor">
@@ -411,7 +422,13 @@ const Portfolio: React.FC = () => {
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
       >
-        Frontend Tech-stack
+        Frontend Tech-stack{" "}
+        {!openFrontendSkills && (
+          <ChevronRight size={30} className="inline float-end" />
+        )}
+        {openFrontendSkills && (
+          <ChevronDown size={30} className="inline float-end" />
+        )}
       </button>
       <AnimatePresence>
         {openFrontendSkills && (
@@ -421,7 +438,7 @@ const Portfolio: React.FC = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[80%]  text-start bg-[#101012]"
+              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[75%]  text-start bg-[#101012]"
             >
               <ul className="py-1 px-5 text-white">
                 <li className="py-1 border-b border-solid border-borderColor">
@@ -455,7 +472,13 @@ const Portfolio: React.FC = () => {
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
       >
-        Backend and Database Tech-stack
+        Backend and Database
+        {!openBackendSkills && (
+          <ChevronRight size={30} className="inline float-end " />
+        )}
+        {openBackendSkills && (
+          <ChevronDown size={30} className="inline float-end" />
+        )}
       </button>
       <AnimatePresence>
         {openBackendSkills && (
@@ -465,7 +488,7 @@ const Portfolio: React.FC = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[80%]  text-start bg-[#101012]"
+              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[75%] text-start bg-[#101012]"
             >
               <ul className="py-1 px-5 text-white">
                 <li className="py-1 border-b border-solid border-borderColor">
@@ -475,10 +498,10 @@ const Portfolio: React.FC = () => {
                   Express
                 </li>
                 <li className="py-1 border-b border-solid border-borderColor">
-                  MongoDB with Mongoose
+                  MongoDB
                 </li>
                 <li className="py-1 border-b border-solid border-borderColor">
-                  MySQL with Sequelize
+                  MySQL
                 </li>
                 <li className="py-1 border-b border-solid border-borderColor">
                   Firebase
@@ -508,7 +531,13 @@ const Portfolio: React.FC = () => {
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
       >
-        Version control
+        Version control{" "}
+        {!openVersionControl && (
+          <ChevronRight size={30} className="inline float-end" />
+        )}
+        {openVersionControl && (
+          <ChevronDown size={30} className="inline float-end" />
+        )}
       </button>
       <AnimatePresence>
         {openVersionControl && (
@@ -518,7 +547,7 @@ const Portfolio: React.FC = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[80%]  text-start bg-[#101012]"
+              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[75%] text-start bg-[#101012]"
             >
               <ul className="py-1 px-5 text-white">
                 <li className="py-1 border-b border-solid border-borderColor">
@@ -540,24 +569,24 @@ const Portfolio: React.FC = () => {
           <p className="my-1 mx-auto w-[50%] sm:max-w-[300px] text-[20px] font-semibold  p-1 text-center rounded">
             Blog Platform
           </p>
-          <p className="max-w-[500px] text-md px-5  py-3 text-start text-white">
+          <p className="max-w-[500px] text-md px-5  py-3 text-start text-white text-nowrap">
             See Website demo:
             <a
               target="_blank"
               href="https://syntax-blog-platform-project.keyrunasir.com/"
               rel="noopener noreferrer"
-              className="text-blue-600 text-wrap"
+              className="text-blue-600 text-wrap break-words"
             >
               https://syntax-blog-platform-project.keyrunasir.com/
             </a>
           </p>
-          <p className="max-w-[500px] text-md  px-5  py-3 text-start text-white">
+          <p className="max-w-[500px] text-md  px-5  py-3 text-start text-white text-nowrap">
             Github link:
             <a
               href="https://github.com/keyr-syntax/Blog-platform"
               rel="noopener"
               target="_blank"
-              className="text-blue-600 text-wrap"
+              className="text-blue-600 text-wrap break-words"
             >
               https://github.com/keyr-syntax/Blog-platform
             </a>
@@ -582,7 +611,7 @@ const Portfolio: React.FC = () => {
               rel="noopener"
               target="_blank"
               href="https://github.com/keyr-syntax"
-              className="text-blue-600 text-wrap"
+              className="text-blue-600 text-wrap break-words"
             >
               https://github.com/keyr-syntax
             </a>
@@ -596,8 +625,9 @@ const Portfolio: React.FC = () => {
         <p className="flex my-1 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded">
           <Phone size={30} className="mr-3" /> <span>0716967559</span>
         </p>
-        <p className="flex mt-1 mb-3 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded">
-          <Mail size={30} className="mr-3" /> <span>keyrsyntax@gmail.com</span>
+        <p className="flex mt-1 mb-3 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded flex-wrap">
+          <Mail size={30} className="mr-3 " />{" "}
+          <span className="text-wrap break-words">keyrsyntax@gmail.com</span>
         </p>
         <form
           ref={form}
