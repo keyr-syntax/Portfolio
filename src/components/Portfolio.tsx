@@ -16,7 +16,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import ScrollIntoView from "react-scroll-into-view";
-
+import { Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 type Input = string;
 
 const Portfolio: React.FC = () => {
@@ -36,27 +37,29 @@ const Portfolio: React.FC = () => {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error("Missing configuration for email service");
+      return;
+    }
     if (!form.current) {
       return;
     }
 
-    emailjs
-      .sendForm("service_onyl73b", "template_8v1c0ho", form.current, {
-        publicKey: "Z8FK6MGCDurMVaz6Q",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setName("");
-          setEmail("");
-          setMessage("");
-          toast.success("Message sent successfully");
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          toast.error("Failed to send Message", error.text);
-        }
-      );
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+      () => {
+        setName("");
+        setEmail("");
+        setMessage("");
+        toast.success("Message sent");
+      },
+      (error) => {
+        toast.error("Failed to send Message");
+      }
+    );
   };
 
   return (
@@ -480,6 +483,15 @@ const Portfolio: React.FC = () => {
                 <li className="py-1 border-b border-solid border-borderColor">
                   Firebase
                 </li>
+                <li className="py-1 border-b border-solid border-borderColor">
+                  Prisma ORM
+                </li>
+                <li className="py-1 border-b border-solid border-borderColor">
+                  Mongoose ORM
+                </li>
+                <li className="py-1 border-b border-solid border-borderColor">
+                  Sequelize ORM
+                </li>
               </ul>
             </motion.div>
           </>
@@ -534,25 +546,25 @@ const Portfolio: React.FC = () => {
               target="_blank"
               href="https://syntax-blog-platform-project.keyrunasir.com/"
               rel="noopener noreferrer"
-              className="text-blue-600"
+              className="text-blue-600 text-wrap"
             >
               https://syntax-blog-platform-project.keyrunasir.com/
             </a>
           </p>
-          <p className=" max-w-[500px] text-md  px-5  py-3 text-start text-white">
+          <p className="max-w-[500px] text-md  px-5  py-3 text-start text-white">
             Github link:
             <a
               href="https://github.com/keyr-syntax/Blog-platform"
               rel="noopener"
               target="_blank"
-              className="text-blue-600"
+              className="text-blue-600 text-wrap"
             >
               https://github.com/keyr-syntax/Blog-platform
             </a>
           </p>
           <p className=" max-w-[500px] text-md px-5  py-3 text-start text-white">
             This blog platform is built by using Javascript, React, Bootstrap,
-            Express and MySQL database.The Blog website has equipped with
+            Express and MySQL database.The Blog website is equipped with
             advanced features and functionality
           </p>
         </div>
@@ -562,15 +574,15 @@ const Portfolio: React.FC = () => {
           Github Link
         </p>
 
-        <p className="my-6 mx-auto w-[80%] max-w-[500px] text-md  p-3 text-center text-white rounded border border-solid border-borderColor">
-          Visit my github page to see details of my projects
-          <p className="flex gap-1 p-3 my-6 mx-auto w-[80%] max-w-[500px] text-md  text-center text-white rounded border border-solid border-borderColor">
-            <Github />{" "}
+        <p className="my-6 mx-auto w-[80%] max-w-[500px] text-md  p-2 text-center text-white rounded border border-solid border-borderColor">
+          Visit my github page to see source code of my projects
+          <p className="flex gap-1 p-2 my-6 mx-auto w-[100%] max-w-[500px] text-md  text-center text-white rounded border border-solid border-borderColor">
+            <Github size={30} />{" "}
             <a
               rel="noopener"
               target="_blank"
               href="https://github.com/keyr-syntax"
-              className="text-blue-600"
+              className="text-blue-600 text-wrap"
             >
               https://github.com/keyr-syntax
             </a>
@@ -580,6 +592,12 @@ const Portfolio: React.FC = () => {
       <div id="contactme" className="flex flex-col mb-[10px]">
         <p className="my-6 mx-auto w-[50%] sm:max-w-[300px] text-[20px] font-semibold  p-1 text-center rounded">
           Contact me
+        </p>
+        <p className="flex my-1 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded">
+          <Phone size={30} className="mr-3" /> <span>0716967559</span>
+        </p>
+        <p className="flex mt-1 mb-3 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded">
+          <Mail size={30} className="mr-3" /> <span>keyrsyntax@gmail.com</span>
         </p>
         <form
           ref={form}
