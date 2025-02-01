@@ -1,50 +1,60 @@
-# React + TypeScript + Vite
+<h1 align="center">Welcome to My Portfolio website 👋</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my portfolio website built by using Typescript, React/Vite, Tailwind CSS and shadcn/UI.
+see live website here: https://portfolio-website.keyrunasir.com/
 
-Currently, two official plugins are available:
+Feel free to clone this repo and use it for yourself.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## First clone the repository into your Laptop
+```sh
+https://github.com/keyr-syntax/Blog-platform.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Inside the backend folder fill the following values in .env file.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+OPENAI_API_KEY=your-openai-api-key
+DB_NAME=MySQL database name
+DB_USER=MySQL database user
+DB_PASSWORD=MySQL database password
+DB_HOST=localhost
+DB_DIALECT=mysql
+TOKEN_SECRET="your JWT token secret"
+cloud_name=cloudinary name for image storage
+api_key=cloudinary api key
+api_secret=cloudinary secret
 ```
+
+
+## Navigate to 'backend' folder and run the following
+```sh
+npm install
+```
+## After package installation is complete, run the following to start the backend server
+```sh
+npm start
+```
+
+## Check if the express server is working by visiting the following URL. If your App is working, you will get success message.
+
+```sh
+http://localhost:5000/
+```
+
+## Navigate to 'frontend' folder and run the following
+```sh
+npm install
+```
+## After package installation is complete, run the following to start your react App
+```sh
+npm run dev
+```
+## Now your App will run smoothly. Enjoy!
+
+## Author
+
+👤 **keyru Nasir**
+
+---
