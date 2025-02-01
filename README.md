@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to My Portfolio website 👋</h1>
 
 This is my portfolio website built by using Typescript, React/Vite, Tailwind CSS and shadcn/UI.
+
 see live website here: https://portfolio-website.keyrunasir.com/
 
 Feel free to clone this repo and use it for yourself.
@@ -9,7 +10,7 @@ Feel free to clone this repo and use it for yourself.
 
 ## First clone the repository into your Laptop
 ```sh
-https://github.com/keyr-syntax/Blog-platform.git
+https://github.com/keyr-syntax/Portfolio.git
 ```
 
 ## Inside the backend folder fill the following values in .env file.
