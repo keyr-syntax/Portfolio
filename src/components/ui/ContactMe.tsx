@@ -3,6 +3,10 @@ import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-label";
+import { Textarea } from "./textarea";
+import { Button } from "./button";
 type Input = string;
 export default function ContactMe() {
   const [name, setName] = useState<Input>("");
@@ -51,57 +55,61 @@ export default function ContactMe() {
         </p>
         <form
           ref={form}
-          className="flex flex-col w-[80%] md:max-w-[500px] rounded-md mx-auto border border-solid border-borderColor py-10 px-[20px]"
           onSubmit={sendEmail}
+          className="flex flex-col gap-2 mx-auto w-[80%] max-w-[500px] border border-solid border-[rgb(255,255,255,0.2)] p-5 rounded-sm"
         >
-          <label className="py-1 mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            className="h-[40px] px-2 rounded-md text-white  bg-borderColor border border-solid border-borderColor focus:bg-borderColor focus:border focus:border-solid focus:border-white text-sm"
-            type="text"
-            name="from_name"
-            placeholder="Write your name"
-            value={name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value);
-            }}
-            required
-          />
-          <label className="py-1 mt-3 mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="h-[40px] text-sm px-2 rounded text-white bg-borderColor border border-solid border-borderColor focus:bg-borderColor focus:border focus:border-solid focus:border-white"
-            type="text"
-            name="user_email"
-            placeholder="Write email address"
-            value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-            required
-          />
-          <label className="py-1 mt-3 mb-2" htmlFor="email">
-            Message
-          </label>
-          <textarea
-            className="text-white text-sm px-2 py-2 rounded bg-borderColor border border-solid border-borderColor focus:bg-borderColor focus:border focus:border-solid focus:border-white"
-            name="message"
-            placeholder="Write your message here"
-            rows={3}
-            value={message}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-              setMessage(e.target.value);
-            }}
-            required
-          />
-          <button
-            className="mt-3 py-1 rounded mx-auto border border-solid border-borderColor w-[50%]"
-            type="submit"
-          >
-            Submit
-          </button>
+          <p className="text-center text-lg">Let us talk</p>
+          <div className="grid gap-2 ">
+            <Label className="text-md" htmlFor="name">
+              Name
+            </Label>
+            <Input
+              className="block border border-solid border-[rgb(255,255,255,0.2)]"
+              id="name"
+              name="from_name"
+              type="text"
+              placeholder="Your name"
+              required
+              value={name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="grid gap-2 ">
+            <Label className="text-md" htmlFor="email">
+              Email
+            </Label>
+            <Input
+              className="block border border-solid border-[rgb(255,255,255,0.2)]"
+              id="email"
+              name="user_email"
+              type="email"
+              placeholder="Your email"
+              required
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div className="grid gap-2 ">
+            <Label className="text-md" htmlFor="message">
+              Message
+            </Label>
+            <Textarea
+              className="block border border-solid border-[rgb(255,255,255,0.2)]"
+              id="email"
+              name="message"
+              placeholder="Your message"
+              required
+              value={message}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                setMessage(e.target.value);
+              }}
+            />
+          </div>
+          <Button type="submit">Send</Button>
         </form>
         <Toaster />
       </div>
