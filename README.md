@@ -16,9 +16,9 @@ https://github.com/keyr-syntax/Portfolio.git
 Inside the portfolio folder create .env file and  fill the following values. You can obtain Email JS service ID, Template ID and Public key from https://www.emailjs.com/
 
 ```sh
-VITE_EMAILJS_SERVICE_ID=service_onyl73b
-VITE_EMAILJS_TEMPLATE_ID=template_8v1c0ho
-VITE_EMAILJS_PUBLIC_KEY=Z8FK6MGCDurMVaz6Q
+VITE_EMAILJS_SERVICE_ID=EmailJS service ID
+VITE_EMAILJS_TEMPLATE_ID=EmailJS template ID
+VITE_EMAILJS_PUBLIC_KEY=EmailJS public key
 ```
 
 Navigate to 'portfolio' folder and run the following
