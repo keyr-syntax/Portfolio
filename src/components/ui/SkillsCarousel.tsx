@@ -16,7 +16,7 @@ export default function SkillsCarousel() {
     <>
       <p
         id="skills"
-        className="mt-6 mx-auto w-[50%] sm:max-w-[300px] text-[20px] font-semibold  p-1 text-center rounded"
+        className="mt-6 mx-auto w-[50%] sm:max-w-[300px] text-[24px] font-semibold  p-1 text-center rounded"
       >
         Skills
       </p>

@@ -224,6 +224,9 @@ export default function Navbar() {
                 inline: "start",
               }}
               selector="#resume"
+              onClick={() => {
+                setMenuOpen(false);
+              }}
             >
               <Link
                 className="flex md:hidden gap-2 items-center text-nowrap  p-[12px] no-underline text-lg text-center"

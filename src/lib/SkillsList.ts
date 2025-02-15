@@ -13,6 +13,12 @@ export const ListOfSkills = [
   },
   {
     image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+    name: "C#",
+    id: 19,
+  },
+  {
+    image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     name: "Python",
     id: 3,
@@ -98,10 +104,17 @@ export const ListOfSkills = [
     name: "Git",
     id: 16,
   },
+
+  {
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
+    name: "Vite",
+    id: 17,
+  },
   {
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
     name: "Vercel",
-    id: 17,
+    id: 18,
   },
 ];

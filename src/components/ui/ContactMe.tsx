@@ -1,8 +1,8 @@
 import toast, { Toaster } from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { Textarea } from "./textarea";
@@ -12,9 +12,11 @@ export default function ContactMe() {
   const [name, setName] = useState<Input>("");
   const [email, setEmail] = useState<Input>("");
   const [message, setMessage] = useState<Input>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const form = useRef<HTMLFormElement | null>(null);
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -29,6 +31,7 @@ export default function ContactMe() {
 
     emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
       () => {
+        setLoading(false);
         setName("");
         setEmail("");
         setMessage("");
@@ -43,7 +46,7 @@ export default function ContactMe() {
   return (
     <>
       <div id="contactme" className="flex flex-col mb-[10px]">
-        <p className="my-6 mx-auto w-[50%] sm:max-w-[300px] text-[20px] font-semibold  p-1 text-center rounded">
+        <p className="my-6 mx-auto w-[50%] sm:max-w-[300px] text-[24px] font-semibold  p-1 text-center rounded">
           Contact me
         </p>
         <p className="flex my-1 mx-auto w-[80%] sm:max-w-[300px] text-[20px] p-1 text-start rounded">
@@ -56,9 +59,9 @@ export default function ContactMe() {
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-2 mx-auto w-[80%] max-w-[500px] border border-solid border-[rgb(255,255,255,0.2)] p-5 rounded-sm"
+          className="flex flex-col gap-2 mx-auto mt-5 w-[80%] max-w-[500px] border border-solid border-[rgb(255,255,255,0.2)] p-8 rounded-lg"
         >
-          <p className="text-center text-lg">Let us talk</p>
+          <p className="text-center text-[24px]">Let us talk</p>
           <div className="grid gap-2 ">
             <Label className="text-md" htmlFor="name">
               Name
@@ -109,7 +112,9 @@ export default function ContactMe() {
               }}
             />
           </div>
-          <Button type="submit">Send</Button>
+          <Button disabled={loading} type="submit">
+            {loading ? "Sending message" : "Send"}
+          </Button>
         </form>
         <Toaster />
       </div>
