@@ -9,7 +9,8 @@
 }
 body {
   /* font-family: Verdana, Tahoma, sans-serif; */
-  background-color: #1c1c1c;
+  /* background-color: #1c1c1c; */
+  background-color: #09090b;
 }
 @layer base {
   :root {

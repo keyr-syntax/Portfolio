@@ -1,5 +1,13 @@
 export const Projects = [
   {
+    title: "Calmify: AI powered mental health support",
+    liveDemo: "https://calmify-ai-mental-health-app.vercel.app/",
+    githubLink:
+      "https://github.com/keyr-syntax/Calmify-AI-powered-mental-health-support-App",
+    projectDescription: `Calmify is AI powered app built to help users get mental health support and advice. Calmify has been chosen as Best App by Go2Cod Internship`,
+    id: 6,
+  },
+  {
     title: "Advanced Blog Platform",
     liveDemo: "https://syntax-blog-platform-project.keyrunasir.com/",
     githubLink: "https://github.com/keyr-syntax/Blog-platform",

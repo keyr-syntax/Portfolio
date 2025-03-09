@@ -8,9 +8,9 @@ import {
   MenuIcon,
   FolderOpen,
   AtSign,
-  Github,
   X,
   CodeXmlIcon,
+  ShieldCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="bg-secondBgColor flex flex-row items-center md:justify-evenly m-auto w-full overflow-auto border border-solid border-borderColor z-1000 fixed top-0 left-0 right-0">
+      <div className="bg-[#09090b] flex flex-row items-center md:justify-evenly m-auto w-full overflow-auto border border-solid border-borderColor z-1000 fixed top-0 left-0 right-0">
         <Link
           className="text-nowrap p-[12px] no-underline text-[20px] text-center "
           to="/"
@@ -99,8 +99,8 @@ export default function Navbar() {
             to="/resume"
           >
             {" "}
-            <Github />
-            Github Link
+            <ShieldCheck />
+            Certificates/LOR
           </Link>
         </ScrollIntoView>
         <ScrollIntoView
@@ -150,7 +150,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="bg-secondBgColor flex flex-col overflow-hidden md:hidden  mx-auto w-full  border border-solid border-borderColor z-999 fixed top-14 left-0 right-0"
+            className="bg-[#09090b] flex flex-col overflow-hidden md:hidden  mx-auto w-full  border border-solid border-borderColor z-999 fixed top-14 left-0 right-0"
           >
             <ScrollIntoView
               alignToTop={true}
@@ -233,8 +233,8 @@ export default function Navbar() {
                 to="/resume"
               >
                 {" "}
-                <Github />
-                Github Link
+                <ShieldCheck />
+                Certificates/LOR
               </Link>
             </ScrollIntoView>
             <ScrollIntoView

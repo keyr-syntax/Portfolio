@@ -16,8 +16,8 @@ export default function ProjectCard() {
               {project.projectDescription}
             </p>
             <Link
-              target="_blank"
               to={`${project.liveDemo}`}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 text-wrap break-words"
             >

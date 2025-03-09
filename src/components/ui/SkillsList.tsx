@@ -10,7 +10,6 @@ export default function SkillsList() {
   const [openProgrammingSkills, setOpenProgrammingSkills] =
     useState<boolean>(false);
   const [openVersionControl, setOpenVersionControl] = useState<boolean>(false);
-  const [openMobileApp, setOpenMobileApp] = useState<boolean>(false);
 
   return (
     <>
@@ -22,7 +21,6 @@ export default function SkillsList() {
           setOpenFrontendSkills(false);
           setOpenProgrammingSkills(false);
           setOpenVersionControl(false);
-          setOpenMobileApp(false);
         }}
         type="submit"
         className="block border border-solid border-borderColor rounded mt-[20px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
@@ -66,7 +64,6 @@ export default function SkillsList() {
           setOpenFrontendSkills(false);
           setOpenProgrammingSkills(!openProgrammingSkills);
           setOpenVersionControl(false);
-          setOpenMobileApp(false);
         }}
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
@@ -112,7 +109,6 @@ export default function SkillsList() {
           setOpenFrontendSkills(!openFrontendSkills);
           setOpenProgrammingSkills(false);
           setOpenVersionControl(false);
-          setOpenMobileApp(false);
         }}
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
@@ -166,7 +162,6 @@ export default function SkillsList() {
           setOpenFrontendSkills(false);
           setOpenProgrammingSkills(false);
           setOpenVersionControl(false);
-          setOpenMobileApp(false);
         }}
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
@@ -226,7 +221,6 @@ export default function SkillsList() {
           setOpenFrontendSkills(false);
           setOpenProgrammingSkills(false);
           setOpenVersionControl(!openVersionControl);
-          setOpenMobileApp(false);
         }}
         type="submit"
         className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
@@ -255,48 +249,6 @@ export default function SkillsList() {
                 </li>
                 <li className="py-1 border-b border-solid border-borderColor">
                   Github
-                </li>
-              </ul>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-      <button
-        onClick={() => {
-          setOpenMobileApp(!openMobileApp);
-          setOpen(false);
-          setOpenBackendSkills(false);
-          setOpenFrontendSkills(false);
-          setOpenProgrammingSkills(false);
-          setOpenVersionControl(false);
-        }}
-        type="submit"
-        className="block border border-solid border-borderColor rounded my-[5px] mx-auto max-w-[500px] w-[80%] text-start py-2 px-5 text-white"
-      >
-        Mobile App{" "}
-        {!openMobileApp && (
-          <ChevronRight size={30} className="inline float-end" />
-        )}
-        {openMobileApp && (
-          <ChevronDown size={30} className="inline float-end" />
-        )}
-      </button>
-      <AnimatePresence>
-        {openMobileApp && (
-          <>
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="border border-solid border-borderColor rounded my-1 mx-auto max-w-[500px] w-[75%]  text-start bg-[#101012]"
-            >
-              <ul className="py-1 px-5 text-white">
-                <li className="py-1 border-b border-solid border-borderColor">
-                  React-native
-                </li>
-                <li className="py-1 border-b border-solid border-borderColor">
-                  Expo framework
                 </li>
               </ul>
             </motion.div>
