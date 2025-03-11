@@ -1,6 +1,6 @@
 import { InitializeGoogleAnalytics, PageVisitor } from "@/lib/GoogleAnalytics";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Card from "./WinnerCard";
 
 export default function AboutMe() {
   useEffect(() => {
@@ -20,20 +20,9 @@ export default function AboutMe() {
         </p>
         <p className="my-6 mx-auto w-[80%] max-w-[500px] text-[18px] font-thin  p-3 text-center text-white rounded-lg border border-solid border-borderColor">
           I am Full-stack developer with excellent skills in both Frontend and
-          Backend Tech stacks. As part of a team internship, I led the
-          development of{" "}
-          <Link
-            className="text-blue-600 font-bold"
-            to="https://calmify-ai-mental-health-app.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Calmify, an AI-powered mental health support app,
-          </Link>{" "}
-          which chosen as the Best App by the Go2Cod community. I served as the
-          team leader, built the entire backend, and contributed to the frontend
-          development, ensuring a seamless user experience.
+          Backend Tech stacks.
         </p>
+        <Card />
       </div>
     </>
   );

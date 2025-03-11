@@ -1,6 +1,7 @@
 import { Projects } from "@/lib/Projects";
 import { Link } from "react-router-dom";
-
+import { FaGithub } from "react-icons/fa";
+import { TvMinimalPlay } from "lucide-react";
 export default function ProjectCard() {
   return (
     <>
@@ -15,24 +16,26 @@ export default function ProjectCard() {
             <p className="text-[16px] font-thin">
               {project.projectDescription}
             </p>
-            <Link
-              to={`${project.liveDemo}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 text-wrap break-words"
-            >
-              <span className="font-thin text-[16px]">Live Demo:</span>{" "}
-              {project.liveDemo}
-            </Link>
-            <Link
-              target="_blank"
-              to={`${project.githubLink}`}
-              rel="noopener noreferrer"
-              className="text-blue-600 text-wrap break-words"
-            >
-              <span className="font-thin text-[16px]">Github Link:</span>{" "}
-              {project.githubLink}
-            </Link>
+            <div className="flex flex-row gap-2 my-2">
+              <Link
+                to={`${project.liveDemo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 text-wrap break-words flex flex-row gap-2 border border-[rgb(255,255,255,0.2)] p-2 rounded"
+              >
+                <TvMinimalPlay size={22} />
+                <span className="font-thin text-[16px]">Live Demo</span>
+              </Link>
+              <Link
+                target="_blank"
+                to={`${project.githubLink}`}
+                rel="noopener noreferrer"
+                className="text-blue-600 text-wrap break-words flex flex-row gap-2 border border-[rgb(255,255,255,0.2)] p-2 rounded"
+              >
+                <FaGithub size={22} />
+                <span className="font-thin text-[16px]">Github Link</span>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
