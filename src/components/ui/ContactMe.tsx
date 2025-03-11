@@ -112,7 +112,11 @@ export default function ContactMe() {
               }}
             />
           </div>
-          <Button disabled={loading} type="submit">
+          <Button
+            className="text-lg w-[150px]"
+            disabled={loading}
+            type="submit"
+          >
             {loading ? "Sending message" : "Send"}
           </Button>
         </form>

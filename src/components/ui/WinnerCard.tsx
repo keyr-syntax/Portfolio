@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Card = () => {
@@ -8,18 +7,18 @@ const Card = () => {
         <h4>Congratulations</h4>
         <p>
           As part of a team internship, I led the development of{" "}
-          <Link
-            className="text-blue-600 font-bold"
-            to="https://calmify-ai-mental-health-app.vercel.app/"
+          <a
+            className="text-blue-600 font-bold cursor-pointer"
+            href="https://calmify-ai-mental-health-app.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Calmify
-          </Link>{" "}
-          , an AI-powered mental health support app, which chosen as the Best
-          App by the Go2Cod community. I served as the team leader, built the
-          entire backend, and contributed to the frontend development, ensuring
-          a seamless user experience.
+          </a>{" "}
+          , an AI-powered mental health support app, which was chosen as the
+          Best App by the Go2Cod internship community. I served as the team
+          leader, built the entire backend, and contributed to the frontend
+          development, ensuring a seamless user experience.
         </p>
       </div>
     </StyledWrapper>
@@ -37,27 +36,34 @@ const StyledWrapper = styled.div`
     place-items: center;
     overflow: hidden;
     border-radius: 20px;
-    padding: 15px;
+    padding: 15px 5px;
     border: solid;
     border-color: rgb(255, 255, 255, 0.2);
+    border-width: 1px;
     margin: auto;
     max-width: 500px;
     text-align: center;
+    z-index: 0;
+  }
+
+  .card p,
+  .card h4 {
+    position: relative;
+    z-index: 1;
+    color: white;
   }
 
   .card p {
-    z-index: 1;
-    color: white;
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 18px;
+    font-weight: lighter;
+    padding: 15px 10px;
   }
+
   .card h4 {
-    z-index: 1;
-    color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: normal;
-    text-decoration: underline;
   }
+
   .card::before {
     content: "";
     position: absolute;
@@ -68,15 +74,16 @@ const StyledWrapper = styled.div`
       rgb(255, 48, 255)
     );
     height: 130%;
-    animation: rotBGimg 3s linear infinite;
-    transition: all 0.2s linear;
+    animation: rotBGimg 5s linear infinite;
+    transition: all 0.5s linear;
+    z-index: 0;
+    pointer-events: none;
   }
 
   @keyframes rotBGimg {
     from {
       transform: rotate(0deg);
     }
-
     to {
       transform: rotate(360deg);
     }
@@ -86,13 +93,11 @@ const StyledWrapper = styled.div`
     content: "";
     position: absolute;
     background: #09090b;
-    inset: 5px;
+    inset: 2px;
     border-radius: 15px;
+    z-index: 0;
+    pointer-events: none;
   }
-  /* .card:hover:before {
-    background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
-    animation: rotBGimg 3.5s linear infinite;
-  } */
 `;
 
 export default Card;
